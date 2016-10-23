@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    Link Swiper's CSS -->
+    <link  href="http://ppiezhao.com/public/css/swiper/swiper.min.css" rel="stylesheet" type="text/css" charset="utf-8">
+	
+	<link href="http://ppiezhao.com/public/css/swiper/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" charset="utf-8"/>
+
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .x {
+        width: 100%;
+        height: 100%;;
+        margin: 20px auto;
+    }
+	.y {
+        width: 100%;;
+        height: 100%;;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+	
+	
+	
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container x" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+				<div class="swiper-container y"  >
+					<div class="swiper-wrapper">
+						<div class="swiper-slide test0"><img src="http://ppiezhao.com/public/img/xiaoxin.jpg"></div>
+						<div class="swiper-slide test1">Slide 21y</div>
+					</div>
+				</div>
+			</div>
+            <div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0"><img src="http://ppiezhao.com/public/img/xiaowanzi.jpg"></div>
+						<div class="swiper-slide test1">Slide 22y</div>
+					</div>
+				</div>
+			</div>
+            <div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper"> 
+						<div class="swiper-slide test0"><img src="http://ppiezhao.com/public/img/aisduck.png"></div>
+						<div class="swiper-slide test1">Slide 32y</div>
+					</div>
+				</div>
+			</div>
+            <div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0"><img src="http://ppiezhao.com/public/img/aisxqiang.jpg"></div>
+						<div class="swiper-slide test1">Slide 42y</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0">Slide 51y</div>
+						<div class="swiper-slide test1">Slide 52y</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0">Slide 61y</div>
+						<div class="swiper-slide test1">Slide 62y</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0">Slide 71y</div>
+						<div class="swiper-slide test1">Slide 72y</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="swiper-container y"  >
+				<div class="swiper-wrapper">
+						<div class="swiper-slide test0">Slide 81y</div>
+						<div class="swiper-slide test1">Slide 82y</div>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- Add Pagination 
+        <div class="swiper-pagination"></div>-->
+    </div>
+	
+	
+	<div id="play10">play</div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0" id="play0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-details">
+			<div class="jp-title" aria-label="title">&nbsp;</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+<!--
+<div id="jquery_jplayer_2" class="jp-jplayer"></div>
+<div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0" id="play1">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-details">
+			<div class="jp-title" aria-label="title">&nbsp;</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+<div id="jquery_jplayer_3" class="jp-jplayer"></div>
+<div id="jp_container_3" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0" id="play2">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-details">
+			<div class="jp-title" aria-label="title">&nbsp;</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+	-->
+	
+	<!--
+	<script type="text/javascript">
+	document.write("<<scr"+"ipt src=\"http://ppiezhao.com/public/js/swiper/jquery.min.js\"></sc"+"ript>>")
+	</script>
+	<script type="text/javascript">
+	document.write("<<scr"+"ipt src=\"http://ppiezhao.com/public/js/swiper/jquery.jplayer.min.js\"></sc"+"ript>>")
+	</script>
+	
+	<script type="text/javascript">
+	document.write("<<scr"+"ipt src=\"http://ppiezhao.com/public/js/swiper/swiper.min.js\"></sc"+"ript>>")
+	</script>
+	  Swiper JS-->
+	<script src="http://ppiezhao.com/public/js/swiper/jquery.min.js" type="text/javascript"  charset="utf-8"></script>
+	
+	<script src="http://ppiezhao.com/public/js/swiper/jquery.jplayer.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://ppiezhao.com/public/js/swiper/swiper.min.js" type="text/javascript" charset="utf-8"></script> 
+	
+    <!-- Initialize Swiper -->
+    <script>
+	
+    
+		
+	
+ 		
+	
+    
+	
+	//$(document).ready(function(){
+		
+		
+	var swiper = new Swiper('.y', {
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			direction: 'vertical',
+			onInit: function(swiper){
+					  //Swiper初始化了
+					 // alert(swiper.activeIndex);//提示Swiper的当前索引
+			},
+			onSlidePrevEnd: function(swiper){
+				
+			},onSlideNextEnd: function(swiper){
+				
+			}
+
+
+		});
+		var swipera = new Swiper('.x',{
+				onInit: function(swiper){
+					  //Swiper初始化了
+					  //alert(swiper.activeIndex);//提示Swiper的当前索引
+				},
+				onSlidePrevEnd: function(swiper){
+					//alert("test"+swiper.activeIndex);
+					
+				},onSlideNextEnd: function(swiper){
+					//alert("test"+swiper.activeIndex);
+					
+				}
+		});	
+		
+		
+		
+		
+	
+		
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				title: "Stirring of a fool",
+				wav: "http://104.224.180.217/tts_sample.wav",
+				oga: "http://www.jplayer.org/audio/ogg/Miaow-08-Stirring-of-a-fool.ogg"
+				
+			}).jPlayer('play');
+		},
+		play: function() { // To avoid multiple jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+		},
+		swfPath: "",
+		supplied: "wav",
+		wmode: "window",
+		globalVolume: true,
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+	})
+      
+/* 
+	$("#jquery_jplayer_2").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				title: "Hidden",
+				m4a: "http://www.jplayer.org/audio/m4a/Miaow-02-Hidden.m4a",
+				oga: "http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+			});
+		},
+		play: function() { // To avoid multiple jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+		},
+		swfPath: "../../js",
+		supplied: "m4a, oga",
+		cssSelectorAncestor: "#jp_container_2",
+		wmode: "window",
+		globalVolume: true,
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+
+	$("#jquery_jplayer_3").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				title: "Bubble",
+				m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+				oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			});
+		},
+		play: function() { // To avoid multiple jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+		},
+		swfPath: "../../js",
+		supplied: "m4a, oga",
+		cssSelectorAncestor: "#jp_container_3",
+		wmode: "window",
+		globalVolume: true,
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});  */
+//});
+//]]>
+</script>
+</body>
+</html>

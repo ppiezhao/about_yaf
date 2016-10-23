@@ -1,0 +1,106 @@
+<?php new Ui_Common_Header();?>
+		
+		<style>
+			.top{
+				width:100%;margin-left:35%;
+			}
+			.textinput{
+				float:left;	width:15%;margin-left:30%;/*background-image:url(/public/img/get.png);*/	
+			}
+			.textinput img{
+				float:left;width:150px;height:150px;/*background-image:url(/public/img/get.png);*/	
+			}
+			.textarea{
+				width:45%;
+			}
+			.loading{display:none;background:url("/public/img/loading.gif") no-repeat scroll 0 0 transparent;float: left;padding:8px;margin:18px 0 0 18px;}
+		</style>
+
+	<body>
+	
+	<div class="container clearfix">
+		<?php new Ui_Common_Sidebar();?>
+		<div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name"><?php if($id>0): echo "编辑"; else: echo "发表";endif;?></span></div>
+        </div>
+		<div class="top" style="margin-top:5%;">
+			<!--<div class="textinput">图片</div>-->
+			<div class="textaea">内容</div>
+		</div>
+		<div class="top">
+		<!--<div class="textinput" onclick="getElementById('inputfile').click()"><img id="imgtext" src="/public/img/get.png"/></div>-->
+		<textarea class="textarea"  name="text" cols="20" rows="6" ></textarea>
+		</div>
+		<div class="test" style="margin-top:3%;margin-left:40%">提交</div>	
+		<input type="file" multiple="multiple" id="inputfile" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"/>
+	</div>
+	</body>
+	
+<script src="/public/js/jquery-1.10.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	var logo = '/public/img/get.png';
+	//响应文件添加成功事件
+	$("#inputfile").change(function(){
+		//创建FormData对象
+		var data = new FormData();
+		//为FormData对象添加数据
+		$.each($('#inputfile')[0].files, function(i, file) {
+			data.append('upload_file'+i, file);
+		});
+		var loding = '/public/img/loading.gif';
+		$("#imgtext").attr('src',loding);
+		//$(".loading").show();	//显示加载图片
+		//发送数据
+		$.ajax({
+			url:'/upload',
+			type:'POST',
+			dataType: 'json', 
+			data:data,
+			cache: false,
+			contentType: false,		//不可缺参数
+			processData: false,		//不可缺参数
+			success:function(data){
+				if(data.error == '0'){
+					$("#imgtext").attr('src',data.data.path);
+				}else{
+					$("#imgtext").attr('src',logo);
+					alert(data.errmsg);
+				}
+				$(".loading").hide();	//加载成功移除加载图片
+			},
+			error:function(){
+				alert('上传出错1');
+				$("#imgtext").attr('src',logo);
+				//$(".loading").hide();	//加载失败移除加载图片
+			}
+		});
+	});
+
+
+	$('.test').click(function(){
+    	var img = $("#imgtext").attr('src');
+		if(img == logo){
+			img = 0;
+		}
+		var text = $(".textarea").val();
+		if(!text.trim()){
+			alert('内容不能为空');
+			return;
+		}
+		$.post('/admin/publishajax', {
+        	'img': img,
+        	'text': text
+    	}, function(data){
+        	 if (data.error == 1) {
+				alert("提交成功");
+				window.location.href='/admin/editmoodlist';
+       		 }else{
+				alert(data.errormsg);
+			 }
+    	}, 'json')
+		})
+});
+</script>
+</html>

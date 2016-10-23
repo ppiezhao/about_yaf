@@ -1,0 +1,71 @@
+<?php new Ui_Common_Header();?>
+		<style>
+			.modelist{
+				border:1px solid; /*表格边框*/
+				font-family:Arial;
+				border-collapse:collapse; /*边框重叠*/
+				background-color:#eaf5ff; /*表格背景色*/
+				font-size:14px;
+				width:85%; 
+			}
+
+			.modelist caption{
+				padding-bottom:px;
+				font:bold 1.4em;
+				text-align:left;
+			}
+
+			.modelist th{  
+ 				 border:1px solid #0058a3;   /* 行名称边框 */  
+			     background-color:#4bacff;   /* 行名称背景色 */  
+			     color:#FFFFFF;              /* 行名称颜色 */  
+			     font-weight:bold;  
+			     padding-top:4px; padding-bottom:4px;  
+			     padding-left:12px; padding-right:12px;  
+			     text-align:center;  
+			}  
+			.modelist td{  
+			    border:1px solid #0058a3;   /* 单元格边框 */  
+			    text-align:left;  
+			    padding-top:4px; padding-bottom:4px;  
+			    padding-left:10px; padding-right:10px;  
+			}	  
+			.modelist tr.altrow{  
+			    background-color:#c7e5ff;   /* 隔行变色 */  
+			}
+
+		</style>	
+	
+	<body>
+	<div class="container clearfix">
+    <?php new Ui_Common_Sidebar();?>
+		<div><div style="float:left">列表页</div><div style="float:right" class="publish">编辑</div></div>
+		<table class="modelist">
+			<!--<caption>列表页</caption>-->
+			<tr>
+			<td>编号</td>
+			<td>图片</td>
+			<td>内容</td>
+			<td>操作</td>
+			</tr>
+		</table>
+	</div>
+	</body>
+<script src="/public/js/jquery-1.10.1.min.js"></script>
+<script src="/public/js/jquery-dialog.js"></script>
+<script>
+$(document).on('click', '.publish', function () {
+	//alert(1);return;
+	var id = $(this).attr('for');
+	var url = '/admin/publish';
+	if(id!=undefined && id!=null && id!='' && id!=0){
+		url='/admin/publish?id='+id;	
+	}
+	window.location.href=url;
+    //$.fn.dialog({href:'/admin/publish?id='+id, title: titletext});
+})
+function publish(){
+	alert(1);
+}
+</script>
+</html>

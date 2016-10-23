@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<?php new Ui_Common_BlogHeader();?>
+
+<link href="/public/yanqq/css/base.css" rel="stylesheet">
+<link href="/public/yanqq/css/mood.css" rel="stylesheet">
+
+<div class="moodlist">
+  <h1 class="t_nav"><span>自言自语，放松放松。。</span><a href="/" class="n1">网站首页</a><a href="/" class="n2">杂谈</a></h1>
+  <div class="bloglist">
+  <!--
+    <ul class="arrow_box">
+     <div class="sy">
+     <img src="/public/yanqq/img/001.png">
+      <p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。</p>
+      </div>
+      <span class="dateview">2014-1-1</span>
+    </ul>
+    <ul class="arrow_box">
+         <div class="sy">
+      <p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。</p>
+        </div>
+      <span class="dateview">2014-1-1</span>
+    </ul>
+    <ul class="arrow_box">
+         <div class="sy">
+      <img src="/public/yanqq/img/001.png">
+      <p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。</p>
+      <span class="dateview">2014-1-1</span>
+        </div>
+    </ul>-->
+  </div>
+  <div class="page"></div>
+</div>
+
+<script src="/public/yanqq/js/silder.js"></script>
+<script type="text/javascript" src="/public/le/js/jquery.min.js"></script>
+<script>
+//alert(1);
+$(document).on('click', '.preall', function () {
+	entermore(1);
+})
+
+$(document).on('click', '.preone', function () {
+	var id = $('.now').html();
+	id = parseInt(id)-1;
+	entermore(id);
+})
+
+$(document).on('click', '.midden', function () {
+	var id = $(this).html();
+	entermore(id);
+})
+$(document).on('click', '.lastone', function () {
+	var id = $('.now').html();
+	id = parseInt(id)+1;
+	entermore(id);
+})
+$(document).on('click', '.endlast', function () {
+	var id = $('.endlast').attr('for');
+	entermore(id);
+})
+
+entermore(1);
+function entermore(_id){
+	var start = _id;
+	//alert(1);
+	//$("#blog").html('111111');
+	$.post('/blog/getmoodlistajax',{
+		start:start
+	},function(dataa){
+		if(dataa.type==0){
+			alert("博主很懒！暂无博文！");
+		}else{
+			
+			var html = '';
+			var data = dataa.data;
+			var img = '';
+			var len = data.length;
+			for(var i=0;i<len;i++){
+				/* img = '';
+				if(data[i].img != '0'){
+					img = '<img src="'+data[i].img+'">';
+				} */
+				html +=	'<ul class="arrow_box">'+
+							'<div class="sy">'+img+
+						  '<p>'+data[i].newstalk+'</p>'+
+						  '<span class="dateview">'+data[i].time+'</span>'+
+							'</div>'+
+						'</ul>';
+				
+				
+			}
+			//alert(html);
+			$(".bloglist").html(html);
+			$(".page").html(dataa.page);
+			
+			
+		}
+	},'json');
+}
+</script>
+</body>
+</html>
